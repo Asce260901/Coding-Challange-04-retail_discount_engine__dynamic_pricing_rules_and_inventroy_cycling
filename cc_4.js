@@ -14,23 +14,22 @@ let products = [
 for (const product of products) {
     switch (product.category) {
         case "electronics":
-            disRate = 0.20
-            disPrice = products.price * (1-disRate);
+            disRate = 0.20;
             break;
 
         case "apparel":
-            disRate = 0.15
-            disPrice = products.price * (1-0.15);
+            disRate = 0.15;
             break;
             
-        case "groceries || household": 
-            disPrice = product.price * (1-0.15);
+        case "groceries":
+        case "household":
+            disRate = 0.10;
             break;
 
         default:
-            discPrice = product.price;
-        
-        
-
+            disRate = 0.00;
     }
-};
+        let disPrice = product.price * (1-disRate);
+        let discount = disRate * 100;
+        console.log(`Price for ${product.pName} in the category of ${product.category} is $${disPrice.toFixed(2)} after a discount of ${discount}% off , original price was $${product.price.toFixed(2)}`)
+    };
