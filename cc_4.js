@@ -14,20 +14,20 @@ let products = [
 for (const product of products) {
     switch (product.category) {
         case "electronics":
-            disRate = 0.20;
+            disRate = 0.20; //20%
             break;
 
         case "apparel":
-            disRate = 0.15;
+            disRate = 0.15; //15%
             break;
             
         case "groceries":
         case "household":
-            disRate = 0.10;
+            disRate = 0.10; //10%
             break;
 
         default:
-            disRate = 0.00;
+            disRate = 0; //0%
     }
         let disPrice = product.price * (1-disRate);
         let discount = disRate * 100;
