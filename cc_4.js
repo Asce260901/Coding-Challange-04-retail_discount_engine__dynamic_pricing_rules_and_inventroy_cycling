@@ -64,16 +64,17 @@ for (const product of products) {
     //variables for while loop
     let i = 0; //order index
     let n = 0; // customer number
-    let p = 0; // cart position
-    let subtotal = 0;
+    
     
     //while loop
     while (n <= 3 && i < custOrders.length){
         let order = custOrders[i];
-        
+        let p = 0; // cart position
+        let subtotal = 0;
     while (p < order.cart.length){
         let item = order.cart[p];
         let product = products[(i*2)+p];
+        
 
         subtotal += product.disPrice*item.qty;
         product.stock -= item.qty;
@@ -86,14 +87,15 @@ for (const product of products) {
         i++;
     };
 
-    //For in loop for all products
-   // products.forEach((product) => {
-   //     for (const key in product) {
-   //         console.log(`${key}: ${product[key]}`) 
-   //     }     
-  //  });
 
   // For in loop for a single product
   for (const key in products[2]) {
     console.log(`${key}: ${products[2][key]}`)
   };
+
+  //Object entries
+  products.forEach((product) => {
+    for (const [key, value] of Object.entries(product)) {
+        console.log(`${key}: ${value}`)
+    }
+  });
