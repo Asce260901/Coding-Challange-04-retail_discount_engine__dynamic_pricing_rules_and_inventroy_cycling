@@ -1,1 +1,1 @@
-Reatil discount engine, dynamic pricing rules and inventory cycling code
+Retail discount engine, dynamic pricing rules and inventory cycling code
