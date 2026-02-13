@@ -12,6 +12,7 @@ let products = [
 ];
 
 //discount rate by category
+ console.log(`-----New price for Products After Discount-----`)
 for (const product of products) {
     let disRate = 0;
     switch (product.category) {
@@ -34,10 +35,9 @@ for (const product of products) {
         let disPrice = product.price * (1-disRate);
         let discount = disRate * 100;
         console.log(`Price for ${product.pName} is $${disPrice.toFixed(2)} after a discount of ${discount}% off , original price was $${product.price.toFixed(2)}`)
-        product.disPrice = disPrice.toFixed(2);
-        product.disRate = disRate.toFixed(2);
+        product.price = disPrice.toFixed(2);
     };
-
+ 
 
     //orders and customer types (loy) loyal, (stu) student, (vet) veteran, (reg) regular
     let custOrders = [
@@ -67,6 +67,7 @@ for (const product of products) {
     
     
     //while loop
+     console.log(`-----Order Processing-----`)
     while (n <= 3 && i < custOrders.length){
         let order = custOrders[i];
         let p = 0; // cart position
@@ -76,7 +77,7 @@ for (const product of products) {
         let product = products[(i*2)+p];
         
 
-        subtotal += product.disPrice*item.qty;
+        subtotal += product.price*item.qty;
         product.stock -= item.qty;
 
         p++;
@@ -89,13 +90,16 @@ for (const product of products) {
 
 
   // For in loop for a single product
+  console.log(`-----Updated Info for Product 003-----`)
   for (const key in products[2]) {
     console.log(`${key}: ${products[2][key]}`)
   };
 
   //Object entries
+  console.log(`-----Updated List After Orders-----`)
   products.forEach((product) => {
     for (const [key, value] of Object.entries(product)) {
         console.log(`${key}: ${value}`)
     }
   });
+  console.log(`-----END-----`)
